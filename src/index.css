@@ -1,0 +1,84 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: #0A0A14;
+    color: #F0EFF4;
+    font-family: 'Sora', sans-serif;
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #0A0A14;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #1E1B2E;
+    border-radius: 9999px;
+    border: 2px solid #0A0A14;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #7B61FF;
+  }
+}
+
+@layer utilities {
+  /* Micro-interactions conformes au prompt */
+  .btn-magnetic {
+    transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94), box-shadow 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+  .btn-magnetic:hover {
+    transform: scale(1.03);
+  }
+
+  .interactive-lift {
+    transition: transform 0.25s cubic-bezier(0.25, 0.46, 0.45, 0.94), color 0.25s ease;
+  }
+  .interactive-lift:hover {
+    transform: translateY(-2px);
+  }
+
+  .card-hover {
+    transition: transform 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94), box-shadow 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94), border-color 0.35s ease;
+  }
+  .card-hover:hover {
+    transform: scale(1.012) translateY(-2px);
+    box-shadow: 0 20px 40px -15px rgba(123, 97, 255, 0.25);
+    border-color: rgba(123, 97, 255, 0.4);
+  }
+
+  /* Gradient Textures & Glows */
+  .text-glow-accent {
+    text-shadow: 0 0 35px rgba(123, 97, 255, 0.55), 0 0 70px rgba(123, 97, 255, 0.25);
+  }
+  
+  .glow-box-subtle {
+    box-shadow: 0 0 40px -10px rgba(123, 97, 255, 0.25);
+  }
+}
+
+/* Pulsing radar & timeline dots */
+@keyframes pulse-dot {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 1;
+    box-shadow: 0 0 0 0 rgba(123, 97, 255, 0.7);
+  }
+  50% {
+    transform: scale(1.15);
+    opacity: 0.85;
+    box-shadow: 0 0 0 8px rgba(123, 97, 255, 0);
+  }
+}
+
+.animate-pulse-dot {
+  animation: pulse-dot 2.5s infinite;
+}
